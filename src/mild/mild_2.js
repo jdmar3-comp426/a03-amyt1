@@ -25,12 +25,12 @@ export function identifyVariable(variable) {
 
  */
 export function identifyArray(array) {
-   let array = [];
+   let returnArray = [];
    for (let i = 0; i < array.length; i++) {
       let type = typeof array[i];
-      array.push({ type: type, value: array[i]});
+      returnArray.push({ type: type, value: array[i]});
    }
-   return array;
+   return returnArray;
 }
 
 /**
