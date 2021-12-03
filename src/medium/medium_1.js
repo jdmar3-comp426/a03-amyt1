@@ -70,7 +70,7 @@ export function getStatistics(array) {
     });
     var min = array[0];
     var max = array[length-1];
-    var variance = variance(array, mean);
+    var varianceAMT = variance(array, mean);
     var standard_deviation = Math.sqrt(standard_deviation);
     return {
         length: length,
@@ -79,7 +79,7 @@ export function getStatistics(array) {
         median: median,
         min: min,
         max: max,
-        variance: variance,
+        variance: varianceAMT,
         standard_deviation : standard_deviation
     };
 }
