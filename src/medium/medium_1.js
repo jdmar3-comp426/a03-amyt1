@@ -28,7 +28,7 @@ export function getSum(array) {
 export function getMedian(array) {
     array.sort(function(a, b){
         return a-b;
-    })
+    });
     var midIndex;
     var median;
     if (array.length % 2 == 0) {
@@ -67,12 +67,12 @@ export function getStatistics(array) {
     var median = getMedian(array);
     array.sort(function(a, b){
         return a-b;
-    })
+    });
     var min = array[0];
     var max = array[length-1];
     var variance = variance(array, mean);
     var standard_deviation = Math.sqrt(standard_deviation);
-    const returnVal = {
+    return {
         length: length,
         sum: sum,
         mean: mean,
@@ -82,6 +82,5 @@ export function getStatistics(array) {
         variance: variance,
         standard_deviation : standard_deviation
     };
-    return returnVal;
 }
 
