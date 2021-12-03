@@ -59,23 +59,24 @@ export function getMedian(array) {
  }
  */
 export function getStatistics(array) {
-    const returnVal = {};
-    returnVal.length = array.length;
-    returnVal.sum = getSum(array);
-    returnVal.mean = returnVal.sum / returnVal.length;
-    returnVal.median = getMedian(array);
-    returnVal.min = array.sort()[0];
-    returnVal.max = array.sort()[returnVal.length-1];
-    returnVal.variance = variance(array, returnVal.mean);
-    var sumVariance = 0;
-    var difference = 0;
-    for (let i = 0; i < length; i++) {
-        difference += array[i] - returnVal.mean;
-        difference = Math.pow(difference, 2);
-        sumVariance += difference;
-    }
-    var standard_deviation = sumVariance / returnVal.length - 1;
-    returnVal.standard_deviation = Math.sqrt(standard_deviation);
+    var length = array.length;
+    var sum = getSum(array);
+    var mean = sum / length;
+    var median = getMedian(array);
+    var min = array.sort()[0];
+    var max = array.sort()[length-1];
+    var variance = variance(array, mean);
+    var standard_deviation = Math.sqrt(standard_deviation);
+    const returnVal = {
+        length: length,
+        sum: sum,
+        mean: mean,
+        median: median,
+        min: min,
+        max: max,
+        variance: variance,
+        standard_deviation : standard_deviation
+    };
     return returnVal;
 }
 
