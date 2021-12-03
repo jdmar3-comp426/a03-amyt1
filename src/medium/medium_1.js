@@ -1,4 +1,4 @@
-import {variance} from "./data/stats_helpers.js";
+import {variance, variance} from "./data/stats_helpers.js";
 
 /**
  * Gets the sum of an array of numbers.
@@ -8,7 +8,11 @@ import {variance} from "./data/stats_helpers.js";
  * prototype functions. Very useful
  */
 export function getSum(array) {
-
+    var sum = 0;
+    for (let i = 0; i < array.length; i++) {
+        sum += array[i];
+    }
+    return sum;
 }
 
 
@@ -22,7 +26,17 @@ export function getSum(array) {
  * console.log(getMedian(array)); // 4.5
  */
 export function getMedian(array) {
-
+    array.sort();
+    var midIndex;
+    var median;
+    if (array.length % 2 == 0) {
+        midIndex = array.length/2;
+        median = (array[midIndex] + array[midIndex+1])/2;
+    } else {
+        midIndex = (array.length/2)+0.5;
+        median = array[midIndex];
+    }
+    return median;
 }
 
 /**
@@ -45,6 +59,23 @@ export function getMedian(array) {
  }
  */
 export function getStatistics(array) {
-
+    const returnVal = {};
+    returnVal.length = array.length;
+    returnVal.sum = getSum(array);
+    returnVal.mean = returnVal.sum / returnVal.length;
+    returnVal.median = getMedian(array);
+    returnVal.min = array.sort()[0];
+    returnVal.max = array.sort()[returnVal.length-1];
+    returnVal.variance = variance(array, returnVal.mean);
+    var sumVariance = 0;
+    var difference = 0;
+    for (let i = 0; i < length; i++) {
+        difference += array[i] - returnVal.mean;
+        difference = Math.pow(difference, 2);
+        sumVariance += difference;
+    }
+    var standard_deviation = sumVariance / returnVal.length - 1;
+    returnVal.standard_deviation = Math.sqrt(standard_deviation);
+    return returnVal;
 }
 
