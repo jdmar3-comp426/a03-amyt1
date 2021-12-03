@@ -1,4 +1,4 @@
-import {variance, variance} from "./data/stats_helpers.js";
+import {variance} from "./data/stats_helpers.js";
 
 /**
  * Gets the sum of an array of numbers.
@@ -33,7 +33,7 @@ export function getMedian(array) {
     var median;
     if (array.length % 2 == 0) {
         midIndex = array.length / 2;
-        median = array[midIndex]
+        median = array[midIndex];
     } else {
         midIndex = (array.length-1) / 2;
         median = array[midIndex] + (array[midIndex+1]) / 2;
